@@ -12,7 +12,7 @@ namespace SportsStore.Controllers {
 
         public IActionResult Index() {
             ViewBag.Message = "Sports Store App";
-            return View(context.Products.OrderBy(p => p.ProductId).First());
+            return View(context.Products.First());
         }
     }
 }
