@@ -11,6 +11,7 @@ namespace SportsStore.Models
         public string Name { get; set; }
         public string Telephone { get; set; }
         public string CellPhone { get; set; }
+        public string Email { get; set; }
         public School School { get; set; }
 
         public DateTime CreateDate { get; set; }

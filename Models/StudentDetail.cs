@@ -8,6 +8,13 @@ namespace SportsStore.Models
     public class StudentDetail
     {
         public int StudentDetailID { get; set; }
+        public string Address { get; set; }
+        public string Address2 { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string Zip { get; set; }
+
+        public DateTime CreateDate { get; set; }
         public Student Student { get; set; }
         public School School { get; set; }
         public Grade Grade { get; set; }

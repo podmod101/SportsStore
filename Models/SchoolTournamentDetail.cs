@@ -8,7 +8,12 @@ namespace SportsStore.Models
     public class SchoolTournamentDetail
     {
         public int SchoolTournamentDetailID { get; set; }
-        public virtual ICollection<School> Schools { get; set; }
-        public virtual ICollection<Tournament> Tournaments { get; set; }
+        public ShootDay ShootDay { get; set; }
+        public string Comment { get; set; }
+        public int ShootTime { get; set; }
+        public DateTime CreateDate { get; set; }
+
+        public ICollection<School> Schools { get; set; }
+        public ICollection<Tournament> Tournaments { get; set; }
     }
 }
