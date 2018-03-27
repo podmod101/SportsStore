@@ -9,7 +9,7 @@ namespace SportsStore.Models
     {
         public int SchoolTournamentDetailID { get; set; }
         public string Comment { get; set; }
-        public int ShootTime { get; set; }
+        public System.TimeSpan ShootTime { get; set; }
         public ShootDay ShootDay { get; set; }
         public School School { get; set; }
         public Tournament Tournament { get; set; }

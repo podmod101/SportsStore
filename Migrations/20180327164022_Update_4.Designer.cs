@@ -198,7 +198,7 @@ namespace SportsStore.Migrations
 
                     b.Property<int?>("ShootDayID");
 
-                    b.Property<int>("ShootTime");
+                    b.Property<System.TimeSpan>("ShootTime");
 
                     b.Property<int?>("TournamentID");
 

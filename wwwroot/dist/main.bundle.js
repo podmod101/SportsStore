@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "./ClientApp/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<table class=\"table table-sm table-striped\">\r\n    <tr><th>Name</th><td>{{product?.name}}</td></tr>\r\n    <tr><th>Category</th><td>{{product?.category}}</td></tr>\r\n    <tr><th>Description</th><td>{{product?.description}}</td></tr>\r\n    <tr><th>Price</th><td>{{product?.price}}</td></tr>\r\n</table>"
+module.exports = "\r\n\r\n<table class=\"table table-sm table-striped\">\r\n    <tr><th>Name</th><td>{{student?.firstName}}</td></tr>\r\n    <tr><th>Gender</th><td>{{student?.gender}}</td></tr>\r\n    <tr><th>SSN</th><td>{{student?.lastFourSSN}}</td></tr>\r\n    <tr><th>Customer #</th><td>{{student?.customerNumber}}</td></tr>\r\n</table>"
 
 /***/ }),
 
@@ -64,9 +64,12 @@ var AppComponent = /** @class */ (function () {
     function AppComponent(repo) {
         this.repo = repo;
     }
-    Object.defineProperty(AppComponent.prototype, "product", {
+    Object.defineProperty(AppComponent.prototype, "student", {
+        //get product(): Product {
+        //    return this.repo.product;
+        //}
         get: function () {
-            return this.repo.product;
+            return this.repo.student;
         },
         enumerable: true,
         configurable: true
@@ -164,7 +167,8 @@ var ModelModule = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Repository; });
 var Repository = /** @class */ (function () {
     function Repository() {
-        this.product = JSON.parse(document.getElementById("data").textContent);
+        //this.product = JSON.parse(document.getElementById("data").textContent);
+        this.student = JSON.parse(document.getElementById("data").textContent);
     }
     return Repository;
 }());
