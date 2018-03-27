@@ -10,7 +10,7 @@ namespace SportsStore.Models
         public int TournamentID { get; set; }
         public string Name { get; set; }
         public string Location { get; set; }
-        public Boolean StateChampion { get; set; }
+        public Boolean StateChampionship { get; set; }
         public string Address { get; set; }
         public string City { get; set; }
         public string State { get; set; }
@@ -18,5 +18,7 @@ namespace SportsStore.Models
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
 
+        public ICollection<StudentTournamentDetail> StudentTournamentDetails { get; set; }
+        public ICollection<SchoolTournamentDetail> SchoolTournamentDetails { get; set; }
     }
 }

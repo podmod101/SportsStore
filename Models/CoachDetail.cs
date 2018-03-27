@@ -9,9 +9,9 @@ namespace SportsStore.Models
     {
         public int CoachDetailID { get; set; }
         public string Name { get; set; }
+        public string Email { get; set; }
         public string Telephone { get; set; }
         public string CellPhone { get; set; }
-        public string Email { get; set; }
         public School School { get; set; }
 
         public DateTime CreateDate { get; set; }
