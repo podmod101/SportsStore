@@ -11,9 +11,10 @@ using System;
 namespace SportsStore.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20180326213932_Update_3")]
+    partial class Update_3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -197,7 +198,7 @@ namespace SportsStore.Migrations
 
                     b.Property<int?>("ShootDayID");
 
-                    b.Property<System.TimeSpan>("ShootTime");
+                    b.Property<DateTime>("ShootTime");
 
                     b.Property<int?>("TournamentID");
 

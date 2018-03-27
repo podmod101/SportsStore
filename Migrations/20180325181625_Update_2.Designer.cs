@@ -11,9 +11,10 @@ using System;
 namespace SportsStore.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20180325181625_Update_2")]
+    partial class Update_2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -145,6 +146,8 @@ namespace SportsStore.Migrations
 
                     b.Property<string>("Name");
 
+                    b.Property<int?>("SchoolTournamentDetailID");
+
                     b.Property<string>("State");
 
                     b.Property<string>("Zip");
@@ -152,6 +155,8 @@ namespace SportsStore.Migrations
                     b.HasKey("SchoolID");
 
                     b.HasIndex("CountyID");
+
+                    b.HasIndex("SchoolTournamentDetailID");
 
                     b.ToTable("School");
                 });
@@ -193,21 +198,13 @@ namespace SportsStore.Migrations
 
                     b.Property<DateTime>("CreateDate");
 
-                    b.Property<int?>("SchoolID");
-
                     b.Property<int?>("ShootDayID");
 
-                    b.Property<System.TimeSpan>("ShootTime");
-
-                    b.Property<int?>("TournamentID");
+                    b.Property<int>("ShootTime");
 
                     b.HasKey("SchoolTournamentDetailID");
 
-                    b.HasIndex("SchoolID");
-
                     b.HasIndex("ShootDayID");
-
-                    b.HasIndex("TournamentID");
 
                     b.ToTable("SchoolTournamentDetail");
                 });
@@ -257,7 +254,11 @@ namespace SportsStore.Migrations
 
                     b.Property<string>("MiddleInitial");
 
+                    b.Property<int?>("StudentTournamentDetailID");
+
                     b.HasKey("StudentID");
+
+                    b.HasIndex("StudentTournamentDetailID");
 
                     b.ToTable("Student");
                 });
@@ -307,15 +308,7 @@ namespace SportsStore.Migrations
 
                     b.Property<DateTime>("CreateDate");
 
-                    b.Property<int?>("StudentID");
-
-                    b.Property<int?>("TournamentID");
-
                     b.HasKey("StudentTournamentDetailID");
-
-                    b.HasIndex("StudentID");
-
-                    b.HasIndex("TournamentID");
 
                     b.ToTable("StudentTournamentDetail");
                 });
@@ -351,15 +344,23 @@ namespace SportsStore.Migrations
 
                     b.Property<string>("Name");
 
+                    b.Property<int?>("SchoolTournamentDetailID");
+
                     b.Property<DateTime>("StartDate");
 
                     b.Property<string>("State");
 
-                    b.Property<bool>("StateChampionship");
+                    b.Property<bool>("StateChampion");
+
+                    b.Property<int?>("StudentTournamentDetailID");
 
                     b.Property<string>("Zip");
 
                     b.HasKey("TournamentID");
+
+                    b.HasIndex("SchoolTournamentDetailID");
+
+                    b.HasIndex("StudentTournamentDetailID");
 
                     b.ToTable("Tournament");
                 });
@@ -390,6 +391,10 @@ namespace SportsStore.Migrations
                     b.HasOne("SportsStore.Models.County", "County")
                         .WithMany()
                         .HasForeignKey("CountyID");
+
+                    b.HasOne("SportsStore.Models.SchoolTournamentDetail")
+                        .WithMany("Schools")
+                        .HasForeignKey("SchoolTournamentDetailID");
                 });
 
             modelBuilder.Entity("SportsStore.Models.SchoolDetail", b =>
@@ -403,7 +408,7 @@ namespace SportsStore.Migrations
                         .HasForeignKey("LevelID");
 
                     b.HasOne("SportsStore.Models.School", "School")
-                        .WithMany("SchoolDetails")
+                        .WithMany()
                         .HasForeignKey("SchoolID");
 
                     b.HasOne("SportsStore.Models.Sector", "Sector")
@@ -413,17 +418,16 @@ namespace SportsStore.Migrations
 
             modelBuilder.Entity("SportsStore.Models.SchoolTournamentDetail", b =>
                 {
-                    b.HasOne("SportsStore.Models.School", "School")
-                        .WithMany("SchoolTournamentDetails")
-                        .HasForeignKey("SchoolID");
-
                     b.HasOne("SportsStore.Models.ShootDay", "ShootDay")
                         .WithMany()
                         .HasForeignKey("ShootDayID");
+                });
 
-                    b.HasOne("SportsStore.Models.Tournament", "Tournament")
-                        .WithMany("SchoolTournamentDetails")
-                        .HasForeignKey("TournamentID");
+            modelBuilder.Entity("SportsStore.Models.Student", b =>
+                {
+                    b.HasOne("SportsStore.Models.StudentTournamentDetail")
+                        .WithMany("Students")
+                        .HasForeignKey("StudentTournamentDetailID");
                 });
 
             modelBuilder.Entity("SportsStore.Models.StudentDetail", b =>
@@ -441,19 +445,19 @@ namespace SportsStore.Migrations
                         .HasForeignKey("SchoolID");
 
                     b.HasOne("SportsStore.Models.Student", "Student")
-                        .WithMany("StudentDetails")
+                        .WithMany()
                         .HasForeignKey("StudentID");
                 });
 
-            modelBuilder.Entity("SportsStore.Models.StudentTournamentDetail", b =>
+            modelBuilder.Entity("SportsStore.Models.Tournament", b =>
                 {
-                    b.HasOne("SportsStore.Models.Student", "Student")
-                        .WithMany("StudentTournamentDetails")
-                        .HasForeignKey("StudentID");
+                    b.HasOne("SportsStore.Models.SchoolTournamentDetail")
+                        .WithMany("Tournaments")
+                        .HasForeignKey("SchoolTournamentDetailID");
 
-                    b.HasOne("SportsStore.Models.Tournament", "Tournament")
-                        .WithMany("StudentTournamentDetails")
-                        .HasForeignKey("TournamentID");
+                    b.HasOne("SportsStore.Models.StudentTournamentDetail")
+                        .WithMany("Tournaments")
+                        .HasForeignKey("StudentTournamentDetailID");
                 });
 #pragma warning restore 612, 618
         }

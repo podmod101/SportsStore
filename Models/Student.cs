@@ -16,6 +16,8 @@ namespace SportsStore.Models
         public DateTime DateOfBirth { get; set; }
         public int LastFourSSN { get; set; }
         public string HuntingLicenseNumber { get; set; }
-        
+
+        public ICollection<StudentDetail> StudentDetails { get; set; }
+        public ICollection<StudentTournamentDetail> StudentTournamentDetails { get; set; }
     }
 }

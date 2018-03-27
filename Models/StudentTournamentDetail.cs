@@ -7,9 +7,9 @@ namespace SportsStore.Models
 {
     public class StudentTournamentDetail
     {
-        public int StudentTournamentDetailID {get;set;}
-        public virtual ICollection<Student> Students { get; set; }
-        public virtual ICollection<Tournament> Tournaments { get; set; }
+        public int StudentTournamentDetailID { get; set; }
+        public Student Student { get; set; }
+        public Tournament Tournament { get; set; }
 
         public DateTime CreateDate { get; set; }
     }
