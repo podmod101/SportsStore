@@ -15,5 +15,8 @@ namespace SportsStore.Models
         public string State { get; set; }
         public string Zip { get; set; }
         public County County { get; set; }
+
+        public ICollection<SchoolDetail> SchoolDetails { get; set; }
+        public ICollection<SchoolTournamentDetail> SchoolTournamentDetails { get; set; }
     }
 }

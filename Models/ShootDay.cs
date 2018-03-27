@@ -9,6 +9,5 @@ namespace SportsStore.Models
     {
         public int ShootDayID { get; set; }
         public string Name { get; set; }
-
     }
 }
