@@ -7,10 +7,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.SpaServices.Webpack;
-using SportsStore.Models;
+using TournamentManagement.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace SportsStore {
+namespace TournamentManagement {
     public class Startup {
         public Startup(IConfiguration configuration) {
             Configuration = configuration;
@@ -22,7 +22,7 @@ namespace SportsStore {
         public void ConfigureServices(IServiceCollection services) {
             services.AddDbContext<DataContext>(options =>
                     options.UseSqlServer(Configuration
-                        ["Data:Products:ConnectionString"]));
+                        ["Data:AIMS:ConnectionString"]));
             services.AddMvc();
         }
 

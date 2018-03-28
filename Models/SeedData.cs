@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using SportsStore.Models;
+using TournamentManagement.Models;
 
-namespace SportsStore {
+namespace TournamentManagement {
 
     public class SeedData {
 

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SportsStore.Models {
+namespace TournamentManagement.Models {
     public class Supplier {
 
         public long SupplierId { get; set; }

@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SportsStore.Models;
+using TournamentManagement.Models;
 using System.Linq;
 
-namespace SportsStore.Controllers {
+namespace TournamentManagement.Controllers {
     public class HomeController : Controller {
         private DataContext context;
 
@@ -11,9 +11,9 @@ namespace SportsStore.Controllers {
         }
 
         public IActionResult Index() {
-            ViewBag.Message = "Sports Store App";
+            ViewBag.Message = "AIMS";
             var student = context.Student.Where(m => m.FirstName == "Lana").FirstOrDefault();
-            //return View(context.Products.First());
+            
             return View(student);
         }
     }

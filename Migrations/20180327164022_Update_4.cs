@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace SportsStore.Migrations
+namespace TournamentManagement.Migrations
 {
     public partial class Update_4 : Migration
     {

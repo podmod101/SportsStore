@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace SportsStore.Models {
+namespace TournamentManagement.Models {
 
     public class DataContext : DbContext {
         public DataContext(DbContextOptions<DataContext> opts)

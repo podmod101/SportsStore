@@ -5,10 +5,10 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
-using SportsStore.Models;
+using TournamentManagement.Models;
 using System;
 
-namespace SportsStore.Migrations
+namespace TournamentManagement.Migrations
 {
     [DbContext(typeof(DataContext))]
     [Migration("20180127121157_Initial")]
@@ -21,7 +21,7 @@ namespace SportsStore.Migrations
                 .HasAnnotation("ProductVersion", "2.0.1-rtm-125")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("SportsStore.Models.Product", b =>
+            modelBuilder.Entity("TournamentManagement.Models.Product", b =>
                 {
                     b.Property<long>("ProductId")
                         .ValueGeneratedOnAdd();
@@ -43,7 +43,7 @@ namespace SportsStore.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("SportsStore.Models.Rating", b =>
+            modelBuilder.Entity("TournamentManagement.Models.Rating", b =>
                 {
                     b.Property<long>("RatingId")
                         .ValueGeneratedOnAdd();
@@ -59,7 +59,7 @@ namespace SportsStore.Migrations
                     b.ToTable("Ratings");
                 });
 
-            modelBuilder.Entity("SportsStore.Models.Supplier", b =>
+            modelBuilder.Entity("TournamentManagement.Models.Supplier", b =>
                 {
                     b.Property<long>("SupplierId")
                         .ValueGeneratedOnAdd();
@@ -75,16 +75,16 @@ namespace SportsStore.Migrations
                     b.ToTable("Suppliers");
                 });
 
-            modelBuilder.Entity("SportsStore.Models.Product", b =>
+            modelBuilder.Entity("TournamentManagement.Models.Product", b =>
                 {
-                    b.HasOne("SportsStore.Models.Supplier", "Supplier")
+                    b.HasOne("TournamentManagement.Models.Supplier", "Supplier")
                         .WithMany("Products")
                         .HasForeignKey("SupplierId");
                 });
 
-            modelBuilder.Entity("SportsStore.Models.Rating", b =>
+            modelBuilder.Entity("TournamentManagement.Models.Rating", b =>
                 {
-                    b.HasOne("SportsStore.Models.Product", "Product")
+                    b.HasOne("TournamentManagement.Models.Product", "Product")
                         .WithMany("Ratings")
                         .HasForeignKey("ProductId");
                 });

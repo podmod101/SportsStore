@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-namespace SportsStore.Models {
+namespace TournamentManagement.Models {
 
     public class Product {
 

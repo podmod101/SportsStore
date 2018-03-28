@@ -1,6 +1,6 @@
 using System;
 
-namespace SportsStore.Models
+namespace TournamentManagement.Models
 {
     public class ErrorViewModel
     {

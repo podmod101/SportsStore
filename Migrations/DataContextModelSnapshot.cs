@@ -5,10 +5,10 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
-using SportsStore.Models;
+using TournamentManagement.Models;
 using System;
 
-namespace SportsStore.Migrations
+namespace TournamentManagement.Migrations
 {
     [DbContext(typeof(DataContext))]
     partial class DataContextModelSnapshot : ModelSnapshot
@@ -20,7 +20,7 @@ namespace SportsStore.Migrations
                 .HasAnnotation("ProductVersion", "2.0.1-rtm-125")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("SportsStore.Models.CoachDetail", b =>
+            modelBuilder.Entity("TournamentManagement.Models.CoachDetail", b =>
                 {
                     b.Property<int>("CoachDetailID")
                         .ValueGeneratedOnAdd();
@@ -44,7 +44,7 @@ namespace SportsStore.Migrations
                     b.ToTable("CoachDetail");
                 });
 
-            modelBuilder.Entity("SportsStore.Models.County", b =>
+            modelBuilder.Entity("TournamentManagement.Models.County", b =>
                 {
                     b.Property<int>("CountyID")
                         .ValueGeneratedOnAdd();
@@ -56,7 +56,7 @@ namespace SportsStore.Migrations
                     b.ToTable("County");
                 });
 
-            modelBuilder.Entity("SportsStore.Models.Division", b =>
+            modelBuilder.Entity("TournamentManagement.Models.Division", b =>
                 {
                     b.Property<int>("DivisionID")
                         .ValueGeneratedOnAdd();
@@ -68,7 +68,7 @@ namespace SportsStore.Migrations
                     b.ToTable("Division");
                 });
 
-            modelBuilder.Entity("SportsStore.Models.Grade", b =>
+            modelBuilder.Entity("TournamentManagement.Models.Grade", b =>
                 {
                     b.Property<int>("GradeID")
                         .ValueGeneratedOnAdd();
@@ -80,7 +80,7 @@ namespace SportsStore.Migrations
                     b.ToTable("Grade");
                 });
 
-            modelBuilder.Entity("SportsStore.Models.Level", b =>
+            modelBuilder.Entity("TournamentManagement.Models.Level", b =>
                 {
                     b.Property<int>("LevelID")
                         .ValueGeneratedOnAdd();
@@ -92,7 +92,7 @@ namespace SportsStore.Migrations
                     b.ToTable("Level");
                 });
 
-            modelBuilder.Entity("SportsStore.Models.Product", b =>
+            modelBuilder.Entity("TournamentManagement.Models.Product", b =>
                 {
                     b.Property<long>("ProductId")
                         .ValueGeneratedOnAdd();
@@ -114,7 +114,7 @@ namespace SportsStore.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("SportsStore.Models.Rating", b =>
+            modelBuilder.Entity("TournamentManagement.Models.Rating", b =>
                 {
                     b.Property<long>("RatingId")
                         .ValueGeneratedOnAdd();
@@ -130,7 +130,7 @@ namespace SportsStore.Migrations
                     b.ToTable("Ratings");
                 });
 
-            modelBuilder.Entity("SportsStore.Models.School", b =>
+            modelBuilder.Entity("TournamentManagement.Models.School", b =>
                 {
                     b.Property<int>("SchoolID")
                         .ValueGeneratedOnAdd();
@@ -156,7 +156,7 @@ namespace SportsStore.Migrations
                     b.ToTable("School");
                 });
 
-            modelBuilder.Entity("SportsStore.Models.SchoolDetail", b =>
+            modelBuilder.Entity("TournamentManagement.Models.SchoolDetail", b =>
                 {
                     b.Property<int>("SchoolDetailID")
                         .ValueGeneratedOnAdd();
@@ -184,7 +184,7 @@ namespace SportsStore.Migrations
                     b.ToTable("SchoolDetail");
                 });
 
-            modelBuilder.Entity("SportsStore.Models.SchoolTournamentDetail", b =>
+            modelBuilder.Entity("TournamentManagement.Models.SchoolTournamentDetail", b =>
                 {
                     b.Property<int>("SchoolTournamentDetailID")
                         .ValueGeneratedOnAdd();
@@ -212,7 +212,7 @@ namespace SportsStore.Migrations
                     b.ToTable("SchoolTournamentDetail");
                 });
 
-            modelBuilder.Entity("SportsStore.Models.Sector", b =>
+            modelBuilder.Entity("TournamentManagement.Models.Sector", b =>
                 {
                     b.Property<int>("SectorID")
                         .ValueGeneratedOnAdd();
@@ -224,7 +224,7 @@ namespace SportsStore.Migrations
                     b.ToTable("Sector");
                 });
 
-            modelBuilder.Entity("SportsStore.Models.ShootDay", b =>
+            modelBuilder.Entity("TournamentManagement.Models.ShootDay", b =>
                 {
                     b.Property<int>("ShootDayID")
                         .ValueGeneratedOnAdd();
@@ -236,7 +236,7 @@ namespace SportsStore.Migrations
                     b.ToTable("ShootDay");
                 });
 
-            modelBuilder.Entity("SportsStore.Models.Student", b =>
+            modelBuilder.Entity("TournamentManagement.Models.Student", b =>
                 {
                     b.Property<int>("StudentID")
                         .ValueGeneratedOnAdd();
@@ -262,7 +262,7 @@ namespace SportsStore.Migrations
                     b.ToTable("Student");
                 });
 
-            modelBuilder.Entity("SportsStore.Models.StudentDetail", b =>
+            modelBuilder.Entity("TournamentManagement.Models.StudentDetail", b =>
                 {
                     b.Property<int>("StudentDetailID")
                         .ValueGeneratedOnAdd();
@@ -300,7 +300,7 @@ namespace SportsStore.Migrations
                     b.ToTable("StudentDetail");
                 });
 
-            modelBuilder.Entity("SportsStore.Models.StudentTournamentDetail", b =>
+            modelBuilder.Entity("TournamentManagement.Models.StudentTournamentDetail", b =>
                 {
                     b.Property<int>("StudentTournamentDetailID")
                         .ValueGeneratedOnAdd();
@@ -320,7 +320,7 @@ namespace SportsStore.Migrations
                     b.ToTable("StudentTournamentDetail");
                 });
 
-            modelBuilder.Entity("SportsStore.Models.Supplier", b =>
+            modelBuilder.Entity("TournamentManagement.Models.Supplier", b =>
                 {
                     b.Property<long>("SupplierId")
                         .ValueGeneratedOnAdd();
@@ -336,7 +336,7 @@ namespace SportsStore.Migrations
                     b.ToTable("Suppliers");
                 });
 
-            modelBuilder.Entity("SportsStore.Models.Tournament", b =>
+            modelBuilder.Entity("TournamentManagement.Models.Tournament", b =>
                 {
                     b.Property<int>("TournamentID")
                         .ValueGeneratedOnAdd();
@@ -364,94 +364,94 @@ namespace SportsStore.Migrations
                     b.ToTable("Tournament");
                 });
 
-            modelBuilder.Entity("SportsStore.Models.CoachDetail", b =>
+            modelBuilder.Entity("TournamentManagement.Models.CoachDetail", b =>
                 {
-                    b.HasOne("SportsStore.Models.School", "School")
+                    b.HasOne("TournamentManagement.Models.School", "School")
                         .WithMany()
                         .HasForeignKey("SchoolID");
                 });
 
-            modelBuilder.Entity("SportsStore.Models.Product", b =>
+            modelBuilder.Entity("TournamentManagement.Models.Product", b =>
                 {
-                    b.HasOne("SportsStore.Models.Supplier", "Supplier")
+                    b.HasOne("TournamentManagement.Models.Supplier", "Supplier")
                         .WithMany("Products")
                         .HasForeignKey("SupplierId");
                 });
 
-            modelBuilder.Entity("SportsStore.Models.Rating", b =>
+            modelBuilder.Entity("TournamentManagement.Models.Rating", b =>
                 {
-                    b.HasOne("SportsStore.Models.Product", "Product")
+                    b.HasOne("TournamentManagement.Models.Product", "Product")
                         .WithMany("Ratings")
                         .HasForeignKey("ProductId");
                 });
 
-            modelBuilder.Entity("SportsStore.Models.School", b =>
+            modelBuilder.Entity("TournamentManagement.Models.School", b =>
                 {
-                    b.HasOne("SportsStore.Models.County", "County")
+                    b.HasOne("TournamentManagement.Models.County", "County")
                         .WithMany()
                         .HasForeignKey("CountyID");
                 });
 
-            modelBuilder.Entity("SportsStore.Models.SchoolDetail", b =>
+            modelBuilder.Entity("TournamentManagement.Models.SchoolDetail", b =>
                 {
-                    b.HasOne("SportsStore.Models.Division", "Division")
+                    b.HasOne("TournamentManagement.Models.Division", "Division")
                         .WithMany()
                         .HasForeignKey("DivisionID");
 
-                    b.HasOne("SportsStore.Models.Level", "Level")
+                    b.HasOne("TournamentManagement.Models.Level", "Level")
                         .WithMany()
                         .HasForeignKey("LevelID");
 
-                    b.HasOne("SportsStore.Models.School", "School")
+                    b.HasOne("TournamentManagement.Models.School", "School")
                         .WithMany("SchoolDetails")
                         .HasForeignKey("SchoolID");
 
-                    b.HasOne("SportsStore.Models.Sector", "Sector")
+                    b.HasOne("TournamentManagement.Models.Sector", "Sector")
                         .WithMany()
                         .HasForeignKey("SectorID");
                 });
 
-            modelBuilder.Entity("SportsStore.Models.SchoolTournamentDetail", b =>
+            modelBuilder.Entity("TournamentManagement.Models.SchoolTournamentDetail", b =>
                 {
-                    b.HasOne("SportsStore.Models.School", "School")
+                    b.HasOne("TournamentManagement.Models.School", "School")
                         .WithMany("SchoolTournamentDetails")
                         .HasForeignKey("SchoolID");
 
-                    b.HasOne("SportsStore.Models.ShootDay", "ShootDay")
+                    b.HasOne("TournamentManagement.Models.ShootDay", "ShootDay")
                         .WithMany()
                         .HasForeignKey("ShootDayID");
 
-                    b.HasOne("SportsStore.Models.Tournament", "Tournament")
+                    b.HasOne("TournamentManagement.Models.Tournament", "Tournament")
                         .WithMany("SchoolTournamentDetails")
                         .HasForeignKey("TournamentID");
                 });
 
-            modelBuilder.Entity("SportsStore.Models.StudentDetail", b =>
+            modelBuilder.Entity("TournamentManagement.Models.StudentDetail", b =>
                 {
-                    b.HasOne("SportsStore.Models.County", "County")
+                    b.HasOne("TournamentManagement.Models.County", "County")
                         .WithMany()
                         .HasForeignKey("CountyID");
 
-                    b.HasOne("SportsStore.Models.Grade", "Grade")
+                    b.HasOne("TournamentManagement.Models.Grade", "Grade")
                         .WithMany()
                         .HasForeignKey("GradeID");
 
-                    b.HasOne("SportsStore.Models.School", "School")
+                    b.HasOne("TournamentManagement.Models.School", "School")
                         .WithMany()
                         .HasForeignKey("SchoolID");
 
-                    b.HasOne("SportsStore.Models.Student", "Student")
+                    b.HasOne("TournamentManagement.Models.Student", "Student")
                         .WithMany("StudentDetails")
                         .HasForeignKey("StudentID");
                 });
 
-            modelBuilder.Entity("SportsStore.Models.StudentTournamentDetail", b =>
+            modelBuilder.Entity("TournamentManagement.Models.StudentTournamentDetail", b =>
                 {
-                    b.HasOne("SportsStore.Models.Student", "Student")
+                    b.HasOne("TournamentManagement.Models.Student", "Student")
                         .WithMany("StudentTournamentDetails")
                         .HasForeignKey("StudentID");
 
-                    b.HasOne("SportsStore.Models.Tournament", "Tournament")
+                    b.HasOne("TournamentManagement.Models.Tournament", "Tournament")
                         .WithMany("StudentTournamentDetails")
                         .HasForeignKey("TournamentID");
                 });
