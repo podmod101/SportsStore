@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "./ClientApp/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n\r\n<table class=\"table table-sm table-striped\">\r\n    <tr><th>Name</th><td>{{student?.firstName}}</td></tr>\r\n    <tr><th>Gender</th><td>{{student?.gender}}</td></tr>\r\n    <tr><th>SSN</th><td>{{student?.lastFourSSN}}</td></tr>\r\n    <tr><th>Student ID #</th><td>{{student?.studentID}}</td></tr>\r\n    <tr><th>Customer #</th><td>{{student?.customerNumber}}</td></tr>\r\n</table>"
+module.exports = "\r\n\r\n<!--<table class=\"table table-sm table-striped\">\r\n    <tr><th>Name</th><td>{{student?.firstName || 'Loading...'}}</td></tr>\r\n    <tr><th>Gender</th><td>{{student?.gender || 'Loading...'}}</td></tr>\r\n    <tr><th>SSN</th><td>{{student?.lastFourSSN || 'Loading...'}}</td></tr>\r\n    <tr><th>Student ID #</th><td>{{student?.studentID || 'Loading...'}}</td></tr>\r\n    <tr><th>Customer #</th><td>{{student?.customerNumber || 'Loading...'}}</td></tr>\r\n</table>-->\r\n\r\n<table class=\"table table-sm table-striped\">\r\n    <tr ng-repeat=\"x in students\"><th>City</th><td>{{x.firstName}}</td></tr>\r\n</table>"
 
 /***/ }),
 
@@ -67,6 +67,13 @@ var AppComponent = /** @class */ (function () {
     Object.defineProperty(AppComponent.prototype, "student", {
         get: function () {
             return this.repo.student;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AppComponent.prototype, "students", {
+        get: function () {
+            return this.repo.students;
         },
         enumerable: true,
         configurable: true
@@ -115,7 +122,7 @@ var AppModule = /** @class */ (function () {
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["E" /* NgModule */])({
             declarations: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]],
-            imports: [__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */], __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_5__models_model_module__["a" /* ModelModule */]],
+            imports: [__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */], __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_5__models_model_module__["a" /* ModelModule */]],
             providers: [],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
         })
@@ -162,10 +169,46 @@ var ModelModule = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Repository; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("./node_modules/@angular/http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("./node_modules/rxjs/_esm5/add/operator/map.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var studentsUrl = "/api/students";
 var Repository = /** @class */ (function () {
-    function Repository() {
-        this.student = JSON.parse(document.getElementById("data").textContent);
+    function Repository(http) {
+        this.http = http;
+        this.getStudents(true);
     }
+    Repository.prototype.getStudent = function (id) {
+        var _this = this;
+        this.sendRequest(__WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestMethod */].Get, studentsUrl + "/" + id)
+            .subscribe(function (response) { _this.student = response.json; });
+    };
+    Repository.prototype.getStudents = function (related) {
+        var _this = this;
+        if (related === void 0) { related = false; }
+        this.sendRequest(__WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestMethod */].Get, studentsUrl + "?related=" + related)
+            .subscribe(function (response) { return _this.students = response; });
+    };
+    Repository.prototype.sendRequest = function (verb, url, data) {
+        return this.http.request(new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Request */]({ method: verb, url: url, body: data }))
+            .map(function (response) { return response.json(); });
+    };
+    Repository = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
+    ], Repository);
     return Repository;
 }());
 

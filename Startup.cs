@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using TournamentManagement.Models;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace TournamentManagement {
     public class Startup {
@@ -19,11 +20,15 @@ namespace TournamentManagement {
         public IConfiguration Configuration { get; }
 
 
-        public void ConfigureServices(IServiceCollection services) {
+        public void ConfigureServices(IServiceCollection services)
+        {
             services.AddDbContext<DataContext>(options =>
                     options.UseSqlServer(Configuration
                         ["Data:AIMS:ConnectionString"]));
-            services.AddMvc();
+
+            services.AddMvc().AddJsonOptions(opts =>
+                opts.SerializerSettings.ReferenceLoopHandling
+                    = ReferenceLoopHandling.Serialize);
         }
 
         public void Configure(IApplicationBuilder app,

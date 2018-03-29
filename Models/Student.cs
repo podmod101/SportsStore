@@ -17,7 +17,7 @@ namespace TournamentManagement.Models
         public int LastFourSSN { get; set; }
         public string HuntingLicenseNumber { get; set; }
 
-        public ICollection<StudentDetail> StudentDetails { get; set; }
-        public ICollection<StudentTournamentDetail> StudentTournamentDetails { get; set; }
+        public IEnumerable<StudentDetail> StudentDetails { get; set; }
+        public IEnumerable<StudentTournamentDetail> StudentTournamentDetails { get; set; }
     }
 }

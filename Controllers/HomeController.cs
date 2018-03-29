@@ -2,7 +2,9 @@
 using TournamentManagement.Models;
 using System.Linq;
 
+
 namespace TournamentManagement.Controllers {
+
     public class HomeController : Controller {
         private DataContext context;
 
@@ -12,7 +14,7 @@ namespace TournamentManagement.Controllers {
 
         public IActionResult Index() {
             ViewBag.Message = "AIMS";
-            var student = context.Student.Where(m => m.FirstName == "Lana").FirstOrDefault();
+            var student = context.Student.Where(m => m.FirstName.Contains("frank")).FirstOrDefault();
             
             return View(student);
         }

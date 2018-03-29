@@ -10,8 +10,14 @@ import { Student } from './models/student.model';
 })
 export class AppComponent {
     constructor(private repo: Repository) { }
+
     get student(): Student
     {
         return this.repo.student;
+    }
+    
+    get students(): Student[]
+    {
+        return this.repo.students;
     }
 }

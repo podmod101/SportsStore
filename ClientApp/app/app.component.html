@@ -1,9 +1,13 @@
 
 
+<!--<table class="table table-sm table-striped">
+    <tr><th>Name</th><td>{{student?.firstName || 'Loading...'}}</td></tr>
+    <tr><th>Gender</th><td>{{student?.gender || 'Loading...'}}</td></tr>
+    <tr><th>SSN</th><td>{{student?.lastFourSSN || 'Loading...'}}</td></tr>
+    <tr><th>Student ID #</th><td>{{student?.studentID || 'Loading...'}}</td></tr>
+    <tr><th>Customer #</th><td>{{student?.customerNumber || 'Loading...'}}</td></tr>
+</table>-->
+
 <table class="table table-sm table-striped">
-    <tr><th>Name</th><td>{{student?.firstName}}</td></tr>
-    <tr><th>Gender</th><td>{{student?.gender}}</td></tr>
-    <tr><th>SSN</th><td>{{student?.lastFourSSN}}</td></tr>
-    <tr><th>Student ID #</th><td>{{student?.studentID}}</td></tr>
-    <tr><th>Customer #</th><td>{{student?.customerNumber}}</td></tr>
+    <tr ng-repeat="x in students"><th>City</th><td>{{x.firstName}}</td></tr>
 </table>
